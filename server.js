@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 const PORT = process.env.PORT || 3000;
-const DB_PATH = path.join(__dirname, '..', '..', '.openclaw', 'workspace', 'polymarket_trades.db');
+const DB_PATH = path.join(__dirname, '..', 'polymarket_trades.db');
 
 // Serve static files
 app.use(express.static('public'));
