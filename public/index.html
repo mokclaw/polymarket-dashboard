@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket Monitor Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-chart-line"></i> Polymarket Monitor</h1>
+      <p class="subtitle">Tracking large trades (>$25k) from new accounts</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fas fa-exchange-alt"></i>
+        <div class="stat-value" id="totalTrades">-</div>
+        <div class="stat-label">Total Trades</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <div class="stat-value" id="uniqueTraders">-</div>
+        <div class="stat-label">Unique Traders</div>
+      </div>
+      <div class="stat-card highlight">
+        <i class="fas fa-dollar-sign"></i>
+        <div class="stat-value" id="totalVolume">-</div>
+        <div class="stat-label">Total Volume</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-chart-bar"></i>
+        <div class="stat-value" id="avgSize">-</div>
+        <div class="stat-label">Avg Trade Size</div>
+      </div>
+      <div class="stat-card alert">
+        <i class="fas fa-user-plus"></i>
+        <div class="stat-value" id="newAccountTrades">-</div>
+        <div class="stat-label">New Account Trades</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-trophy"></i>
+        <div class="stat-value" id="maxSize">-</div>
+        <div class="stat-label">Largest Trade</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="trades"><i class="fas fa-list"></i> Recent Trades</button>
+      <button class="tab-btn" data-tab="traders"><i class="fas fa-users"></i> Top Traders</button>
+      <button class="tab-btn" data-tab="alerts"><i class="fas fa-bell"></i> Alerts</button>
+    </div>
+
+    <div class="tab-content active" id="trades-tab">
+      <div class="table-container">
+        <table id="tradesTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Market</th>
+              <th>Outcome</th>
+              <th>Size</th>
+              <th>Price</th>
+              <th>Trader</th>
+              <th>New</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-content" id="traders-tab">
+      <div class="table-container">
+        <table id="tradersTable">
+          <thead>
+            <tr>
+              <th>Trader</th>
+              <th>Trades</th>
+              <th>Total Volume</th>
+              <th>Avg Size</th>
+              <th>Max Size</th>
+              <th>First Trade</th>
+              <th>Last Trade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-content" id="alerts-tab">
+      <div id="alertsList">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <footer>
+      <p>Data updates every minute • Min trade size: $25,000 • Excludes sports markets</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
